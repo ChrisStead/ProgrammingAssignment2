@@ -42,6 +42,8 @@ cacheSolve <- function(x, ...) {
     }
     ## The cache was null, so we need to calculate it
     matrix <- x$get()
+    ## The solve function in the R base package will calculate the inverse of a matrix
+    ## when the second argument is not present, it is assumed to be an identity matrix
     inverse <- solve(matrix, ...)
     x$setInverse(inverse)
     inverse
